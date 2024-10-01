@@ -6,17 +6,15 @@ package zkp_auth;
  * y1 = alpha^x mod p
  * y2 = beta^x mod p
  */ 
- message RegisterRequest {
+message RegisterRequest {
     string user = 1;
     bytes y1 = 2;
     bytes y2 = 3;
- }
+}
 
- message RegisterResponse {
- }
+message RegisterResponse {}
 
-
- /*
+/*
  * Prover ask for challenge in the server sending
  * r1 = alpha^k mod p
  * r2 = beta^k mod p
@@ -33,22 +31,21 @@ message AuthenticationChallengeResponse {
     bytes c = 2;
 }
 
-
- /*
+/*
  * Prover sends solution "s = k - c * x mod q" to the challenge
  * Verifier sends the session ID if the solution is correct
  */ 
- message AuthenticationAnswerRequest {
+message AuthenticationAnswerRequest {
     string auth_id = 1;
     bytes s = 2;
- }
+}
 
- message AuthenticationAnswerResponse {
+message AuthenticationAnswerResponse {
     string session_id = 1;
- }
+}
 
- service Auth {
-    rpc Register(RegisterRequest) returns (RegisterResponse){}
+service Auth {
+    rpc Register(RegisterRequest) returns (RegisterResponse) {}
     rpc CreateAuthenticationChallenge(AuthenticationChallengeRequest) returns (AuthenticationChallengeResponse) {}
     rpc VerifyAuthentication(AuthenticationAnswerRequest) returns (AuthenticationAnswerResponse) {}
- }
+}
