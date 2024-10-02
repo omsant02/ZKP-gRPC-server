@@ -47,6 +47,13 @@ impl Auth for AuthImpl {
 
         let user_name = request.user;
 
+        // let user_info = UserInfo {
+        //     user_name: user_name.clone(),
+        //     y1: BigUint::from_bytes_be(&request.y1),
+        //     y2: BigUint::from_bytes_be(&request.y2),
+        //     ..Default::default()
+        // };
+
        
         let mut user_info = UserInfo::default();
 

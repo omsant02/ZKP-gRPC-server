@@ -11,6 +11,11 @@ pub struct ZKP {
 impl ZKP {
     //  a^x mod P  ------------------general
     //  output = n^exp mod P
+    // pub fn compute_pair(&self, exp: &BigUint) -> (BigUint, BigUint) {
+    //     let p1 = self.alpha.modpow(exp, &self.p);
+    //     let p2 = self.beta.modpow(exp, &self.p);
+    //     (p1, p2)
+    // }
     pub fn exponentiate(n: &BigUint, exponent: &BigUint, modulus: &BigUint) -> BigUint {
         n.modpow(exponent, modulus)
     }

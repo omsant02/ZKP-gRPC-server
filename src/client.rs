@@ -69,6 +69,7 @@ async fn main() {
     buf.clear();
 
     let k = ZKP::generate_random_number_below(&q);
+    // let (r1, r2) = zkp.compute_pair(&k);
     let r1 = ZKP::exponentiate(&alpha, &k, &p);
     let r2 = ZKP::exponentiate(&beta, &k, &p);
 
